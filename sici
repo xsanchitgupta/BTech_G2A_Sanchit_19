@@ -1,0 +1,24 @@
+#include <stdio.h>
+double power(double base, int exponent){
+    double answer = 1;
+    while(exponent > 0){
+        answer *= base; 
+        exponent--;
+    }
+    return answer;
+}
+int main() {
+    double p, r, si, ci;
+    int t;
+    printf("Enter principal amount : ");
+    scanf("%lf", &p);
+    printf("Enter rate of interest : ");
+    scanf("%lf", &r);
+    printf("Enter time period : ");
+    scanf("%d", &t);
+    si = (p * r * t) / 100;
+    ci = p * power((1 + (r / 100)), t) - p;
+    printf("The Simple Interest is %.2lf\n", si);
+    printf("The Compound Interest is %.2lf\n", ci);
+    return 0;
+}
